@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-9a13c5160d (http://hl7.org/fhir/StructureDefinition/ClinicalProfile) on 2019-04-12.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/ClinicalProfile) on 2019-06-01.
 #  2019, SMART Health IT.
 
 
@@ -114,19 +114,23 @@ class ClinicalProfileDiagnosis(backboneelement.BackboneElement):
         
         self.correlatedDiagnoses = None
         """ Correlated diagnosies.
-        Type `ClinicalProfileMedicationCorrelatedDiagnoses` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedDiagnoses` (represented as `dict` in JSON). """
+        
+        self.correlatedLabs = None
+        """ Correlated labs.
+        Type `ClinicalProfileLabScalarDistributionCorrelatedLabs` (represented as `dict` in JSON). """
         
         self.correlatedMedications = None
         """ Correlated medications.
-        Type `ClinicalProfileMedicationCorrelatedMedications` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedMedications` (represented as `dict` in JSON). """
         
         self.correlatedPhenotypes = None
         """ Correlated phenotypes.
-        Type `ClinicalProfileMedicationCorrelatedPhenotypes` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedPhenotypes` (represented as `dict` in JSON). """
         
         self.correlatedProcedures = None
         """ Correlated procedures.
-        Type `ClinicalProfileMedicationCorrelatedProcedures` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedProcedures` (represented as `dict` in JSON). """
         
         self.count = None
         """ Number of times listed per patient per hear for each code.
@@ -146,10 +150,11 @@ class ClinicalProfileDiagnosis(backboneelement.BackboneElement):
         js = super(ClinicalProfileDiagnosis, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, True, None, True),
-            ("correlatedDiagnoses", "correlatedDiagnoses", ClinicalProfileMedicationCorrelatedDiagnoses, False, None, False),
-            ("correlatedMedications", "correlatedMedications", ClinicalProfileMedicationCorrelatedMedications, False, None, False),
-            ("correlatedPhenotypes", "correlatedPhenotypes", ClinicalProfileMedicationCorrelatedPhenotypes, False, None, False),
-            ("correlatedProcedures", "correlatedProcedures", ClinicalProfileMedicationCorrelatedProcedures, False, None, False),
+            ("correlatedDiagnoses", "correlatedDiagnoses", ClinicalProfileLabScalarDistributionCorrelatedDiagnoses, False, None, False),
+            ("correlatedLabs", "correlatedLabs", ClinicalProfileLabScalarDistributionCorrelatedLabs, False, None, False),
+            ("correlatedMedications", "correlatedMedications", ClinicalProfileLabScalarDistributionCorrelatedMedications, False, None, False),
+            ("correlatedPhenotypes", "correlatedPhenotypes", ClinicalProfileLabScalarDistributionCorrelatedPhenotypes, False, None, False),
+            ("correlatedProcedures", "correlatedProcedures", ClinicalProfileLabScalarDistributionCorrelatedProcedures, False, None, False),
             ("count", "count", int, False, None, True),
             ("fractionOfSubjects", "fractionOfSubjects", float, False, None, True),
             ("frequencyPerYear", "frequencyPerYear", float, False, None, False),
@@ -179,19 +184,23 @@ class ClinicalProfileHpo(backboneelement.BackboneElement):
         
         self.correlatedDiagnoses = None
         """ Correlated diagnosies.
-        Type `ClinicalProfileMedicationCorrelatedDiagnoses` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedDiagnoses` (represented as `dict` in JSON). """
+        
+        self.correlatedLabs = None
+        """ Correlated labs.
+        Type `ClinicalProfileLabScalarDistributionCorrelatedLabs` (represented as `dict` in JSON). """
         
         self.correlatedMedications = None
         """ Correlated medications.
-        Type `ClinicalProfileMedicationCorrelatedMedications` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedMedications` (represented as `dict` in JSON). """
         
         self.correlatedPhenotypes = None
         """ Correlated phenotypes.
-        Type `ClinicalProfileMedicationCorrelatedPhenotypes` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedPhenotypes` (represented as `dict` in JSON). """
         
         self.correlatedProcedures = None
         """ Correlated procedures.
-        Type `ClinicalProfileMedicationCorrelatedProcedures` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedProcedures` (represented as `dict` in JSON). """
         
         self.fractionOfSubjects = None
         """ Fraction of patients with this procedure per year.
@@ -207,10 +216,11 @@ class ClinicalProfileHpo(backboneelement.BackboneElement):
         js = super(ClinicalProfileHpo, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, True, None, True),
-            ("correlatedDiagnoses", "correlatedDiagnoses", ClinicalProfileMedicationCorrelatedDiagnoses, False, None, False),
-            ("correlatedMedications", "correlatedMedications", ClinicalProfileMedicationCorrelatedMedications, False, None, False),
-            ("correlatedPhenotypes", "correlatedPhenotypes", ClinicalProfileMedicationCorrelatedPhenotypes, False, None, False),
-            ("correlatedProcedures", "correlatedProcedures", ClinicalProfileMedicationCorrelatedProcedures, False, None, False),
+            ("correlatedDiagnoses", "correlatedDiagnoses", ClinicalProfileLabScalarDistributionCorrelatedDiagnoses, False, None, False),
+            ("correlatedLabs", "correlatedLabs", ClinicalProfileLabScalarDistributionCorrelatedLabs, False, None, False),
+            ("correlatedMedications", "correlatedMedications", ClinicalProfileLabScalarDistributionCorrelatedMedications, False, None, False),
+            ("correlatedPhenotypes", "correlatedPhenotypes", ClinicalProfileLabScalarDistributionCorrelatedPhenotypes, False, None, False),
+            ("correlatedProcedures", "correlatedProcedures", ClinicalProfileLabScalarDistributionCorrelatedProcedures, False, None, False),
             ("fractionOfSubjects", "fractionOfSubjects", float, False, None, True),
             ("frequencyPerYear", "frequencyPerYear", float, False, None, False),
         ])
@@ -279,9 +289,25 @@ class ClinicalProfileLabScalarDistribution(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.correlatedDiagnoses = None
+        """ Correlated diagnosies.
+        Type `ClinicalProfileLabScalarDistributionCorrelatedDiagnoses` (represented as `dict` in JSON). """
+        
         self.correlatedLabs = None
         """ Correlated laboratory tests.
         Type `ClinicalProfileLabScalarDistributionCorrelatedLabs` (represented as `dict` in JSON). """
+        
+        self.correlatedMedications = None
+        """ Correlated medications.
+        Type `ClinicalProfileLabScalarDistributionCorrelatedMedications` (represented as `dict` in JSON). """
+        
+        self.correlatedPhenotypes = None
+        """ Correlated phenotypes.
+        Type `ClinicalProfileLabScalarDistributionCorrelatedPhenotypes` (represented as `dict` in JSON). """
+        
+        self.correlatedProcedures = None
+        """ Correlated procedures.
+        Type `ClinicalProfileLabScalarDistributionCorrelatedProcedures` (represented as `dict` in JSON). """
         
         self.decile = None
         """ Decile partitions.
@@ -332,7 +358,11 @@ class ClinicalProfileLabScalarDistribution(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClinicalProfileLabScalarDistribution, self).elementProperties()
         js.extend([
+            ("correlatedDiagnoses", "correlatedDiagnoses", ClinicalProfileLabScalarDistributionCorrelatedDiagnoses, False, None, False),
             ("correlatedLabs", "correlatedLabs", ClinicalProfileLabScalarDistributionCorrelatedLabs, False, None, False),
+            ("correlatedMedications", "correlatedMedications", ClinicalProfileLabScalarDistributionCorrelatedMedications, False, None, False),
+            ("correlatedPhenotypes", "correlatedPhenotypes", ClinicalProfileLabScalarDistributionCorrelatedPhenotypes, False, None, False),
+            ("correlatedProcedures", "correlatedProcedures", ClinicalProfileLabScalarDistributionCorrelatedProcedures, False, None, False),
             ("decile", "decile", ClinicalProfileLabScalarDistributionDecile, True, None, False),
             ("fractionAboveNormal", "fractionAboveNormal", float, False, None, False),
             ("fractionBelowNormal", "fractionBelowNormal", float, False, None, False),
@@ -344,6 +374,81 @@ class ClinicalProfileLabScalarDistribution(backboneelement.BackboneElement):
             ("normalizedLow", "normalizedLow", float, False, None, False),
             ("stdDev", "stdDev", float, False, None, True),
             ("units", "units", quantity.Quantity, False, None, True),
+        ])
+        return js
+
+
+class ClinicalProfileLabScalarDistributionCorrelatedDiagnoses(backboneelement.BackboneElement):
+    """ Correlated diagnosies.
+    
+    An ordered list of  the diagnoses  that are most closely correlated.  This
+    list can be limited by the top "n" diagnoses and/or a cutoff on the
+    absolute value of the correlation coefficient.
+    """
+    
+    resource_type = "ClinicalProfileLabScalarDistributionCorrelatedDiagnoses"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.abscorrelation = None
+        """ Minimum absolute value of correlation coefficient.
+        Type `float`. """
+        
+        self.entry = None
+        """ Correlation entry.
+        Type `ClinicalProfileLabScalarDistributionCorrelatedDiagnosesEntry` (represented as `dict` in JSON). """
+        
+        self.topn = None
+        """ Number of diagnoses cutoff (e.g. top 10).
+        Type `int`. """
+        
+        super(ClinicalProfileLabScalarDistributionCorrelatedDiagnoses, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ClinicalProfileLabScalarDistributionCorrelatedDiagnoses, self).elementProperties()
+        js.extend([
+            ("abscorrelation", "abscorrelation", float, False, None, False),
+            ("entry", "entry", ClinicalProfileLabScalarDistributionCorrelatedDiagnosesEntry, False, None, False),
+            ("topn", "topn", int, False, None, False),
+        ])
+        return js
+
+
+class ClinicalProfileLabScalarDistributionCorrelatedDiagnosesEntry(backboneelement.BackboneElement):
+    """ Correlation entry.
+    """
+    
+    resource_type = "ClinicalProfileLabScalarDistributionCorrelatedDiagnosesEntry"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.code = None
+        """ Diagnosis code(s).
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.coefficient = None
+        """ Correlation coefficient.
+        Type `float`. """
+        
+        super(ClinicalProfileLabScalarDistributionCorrelatedDiagnosesEntry, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ClinicalProfileLabScalarDistributionCorrelatedDiagnosesEntry, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("coefficient", "coefficient", float, False, None, True),
         ])
         return js
 
@@ -423,6 +528,246 @@ class ClinicalProfileLabScalarDistributionCorrelatedLabsEntry(backboneelement.Ba
         return js
 
 
+class ClinicalProfileLabScalarDistributionCorrelatedMedications(backboneelement.BackboneElement):
+    """ Correlated medications.
+    
+    An ordered list of  the medications  that are most closely correlated.
+    This list can be limited by the top "n" medications and/or a cutoff on the
+    absolute value of the correlation coefficient.
+    """
+    
+    resource_type = "ClinicalProfileLabScalarDistributionCorrelatedMedications"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.deviation = None
+        """ Deviation cutoff.
+        Type `float`. """
+        
+        self.entry = None
+        """ Correlation entry.
+        List of `ClinicalProfileLabScalarDistributionCorrelatedMedicationsEntry` items (represented as `dict` in JSON). """
+        
+        self.topn = None
+        """ Number of medications cutoff (e.g. top 10).
+        Type `int`. """
+        
+        super(ClinicalProfileLabScalarDistributionCorrelatedMedications, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ClinicalProfileLabScalarDistributionCorrelatedMedications, self).elementProperties()
+        js.extend([
+            ("deviation", "deviation", float, False, None, False),
+            ("entry", "entry", ClinicalProfileLabScalarDistributionCorrelatedMedicationsEntry, True, None, False),
+            ("topn", "topn", int, False, None, False),
+        ])
+        return js
+
+
+class ClinicalProfileLabScalarDistributionCorrelatedMedicationsEntry(backboneelement.BackboneElement):
+    """ Correlation entry.
+    """
+    
+    resource_type = "ClinicalProfileLabScalarDistributionCorrelatedMedicationsEntry"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.category = None
+        """ Indicates the type of medication dispense (for example, where the
+        medication is expected to be consumed or administered (i.e.
+        inpatient or outpatient)).
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.coefficient = None
+        """ Correlation coefficient.
+        Type `float`. """
+        
+        self.labCodeableConcept = None
+        """ Medication code(s).
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.labReference = None
+        """ Medication code(s).
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        super(ClinicalProfileLabScalarDistributionCorrelatedMedicationsEntry, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ClinicalProfileLabScalarDistributionCorrelatedMedicationsEntry, self).elementProperties()
+        js.extend([
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("coefficient", "coefficient", float, False, None, True),
+            ("labCodeableConcept", "labCodeableConcept", codeableconcept.CodeableConcept, False, "lab", True),
+            ("labReference", "labReference", fhirreference.FHIRReference, False, "lab", True),
+        ])
+        return js
+
+
+class ClinicalProfileLabScalarDistributionCorrelatedPhenotypes(backboneelement.BackboneElement):
+    """ Correlated phenotypes.
+    
+    An ordered list of  the phenotypes  that are most closely correlated.  This
+    list can be limited by the top "n" phenotypes and/or a cutoff on the
+    absolute value of the correlation coefficient.
+    """
+    
+    resource_type = "ClinicalProfileLabScalarDistributionCorrelatedPhenotypes"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.abscorrelation = None
+        """ Minimum absolute value of correlation coefficient.
+        Type `float`. """
+        
+        self.entry = None
+        """ Correlation entry.
+        List of `ClinicalProfileLabScalarDistributionCorrelatedPhenotypesEntry` items (represented as `dict` in JSON). """
+        
+        self.topn = None
+        """ Number of phenotypes cutoff (e.g. top 10).
+        Type `int`. """
+        
+        super(ClinicalProfileLabScalarDistributionCorrelatedPhenotypes, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ClinicalProfileLabScalarDistributionCorrelatedPhenotypes, self).elementProperties()
+        js.extend([
+            ("abscorrelation", "abscorrelation", float, False, None, False),
+            ("entry", "entry", ClinicalProfileLabScalarDistributionCorrelatedPhenotypesEntry, True, None, False),
+            ("topn", "topn", int, False, None, False),
+        ])
+        return js
+
+
+class ClinicalProfileLabScalarDistributionCorrelatedPhenotypesEntry(backboneelement.BackboneElement):
+    """ Correlation entry.
+    
+    List of correlated phenotypes in descending order of the absolute value of
+    the correlation coefficient.
+    """
+    
+    resource_type = "ClinicalProfileLabScalarDistributionCorrelatedPhenotypesEntry"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.code = None
+        """ Phenotype codes.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.coefficient = None
+        """ Correlation coefficient.
+        Type `float`. """
+        
+        super(ClinicalProfileLabScalarDistributionCorrelatedPhenotypesEntry, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ClinicalProfileLabScalarDistributionCorrelatedPhenotypesEntry, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("coefficient", "coefficient", float, False, None, True),
+        ])
+        return js
+
+
+class ClinicalProfileLabScalarDistributionCorrelatedProcedures(backboneelement.BackboneElement):
+    """ Correlated procedures.
+    
+    An ordered list of  the procedures  that are most closely correlated.  This
+    list can be limited by the top "n" procedures and/or a cutoff on the
+    absolute value of the correlation coefficient.
+    """
+    
+    resource_type = "ClinicalProfileLabScalarDistributionCorrelatedProcedures"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.abscorrelation = None
+        """ Minimum absolute value of correlation coefficient.
+        Type `float`. """
+        
+        self.entry = None
+        """ Correlation entry.
+        List of `ClinicalProfileLabScalarDistributionCorrelatedProceduresEntry` items (represented as `dict` in JSON). """
+        
+        self.topn = None
+        """ Number of rocedures cutoff (e.g. top 10).
+        Type `int`. """
+        
+        super(ClinicalProfileLabScalarDistributionCorrelatedProcedures, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ClinicalProfileLabScalarDistributionCorrelatedProcedures, self).elementProperties()
+        js.extend([
+            ("abscorrelation", "abscorrelation", float, False, None, False),
+            ("entry", "entry", ClinicalProfileLabScalarDistributionCorrelatedProceduresEntry, True, None, False),
+            ("topn", "topn", int, False, None, False),
+        ])
+        return js
+
+
+class ClinicalProfileLabScalarDistributionCorrelatedProceduresEntry(backboneelement.BackboneElement):
+    """ Correlation entry.
+    """
+    
+    resource_type = "ClinicalProfileLabScalarDistributionCorrelatedProceduresEntry"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.code = None
+        """ Procedure code(s).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.coefficient = None
+        """ Correlation coefficient.
+        Type `float`. """
+        
+        super(ClinicalProfileLabScalarDistributionCorrelatedProceduresEntry, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ClinicalProfileLabScalarDistributionCorrelatedProceduresEntry, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, True, None, True),
+            ("coefficient", "coefficient", float, False, None, True),
+        ])
+        return js
+
+
 class ClinicalProfileLabScalarDistributionDecile(backboneelement.BackboneElement):
     """ Decile partitions.
     """
@@ -478,19 +823,23 @@ class ClinicalProfileMedication(backboneelement.BackboneElement):
         
         self.correlatedDiagnoses = None
         """ Correlated diagnosies.
-        Type `ClinicalProfileMedicationCorrelatedDiagnoses` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedDiagnoses` (represented as `dict` in JSON). """
+        
+        self.correlatedLabs = None
+        """ Correlated labs.
+        Type `ClinicalProfileLabScalarDistributionCorrelatedLabs` (represented as `dict` in JSON). """
         
         self.correlatedMedications = None
         """ Correlated medications.
-        Type `ClinicalProfileMedicationCorrelatedMedications` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedMedications` (represented as `dict` in JSON). """
         
         self.correlatedPhenotypes = None
         """ Correlated phenotypes.
-        Type `ClinicalProfileMedicationCorrelatedPhenotypes` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedPhenotypes` (represented as `dict` in JSON). """
         
         self.correlatedProcedures = None
         """ Correlated procedures.
-        Type `ClinicalProfileMedicationCorrelatedProcedures` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedProcedures` (represented as `dict` in JSON). """
         
         self.dosage = None
         """ Details of how medication was taken.
@@ -522,331 +871,17 @@ class ClinicalProfileMedication(backboneelement.BackboneElement):
         js = super(ClinicalProfileMedication, self).elementProperties()
         js.extend([
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("correlatedDiagnoses", "correlatedDiagnoses", ClinicalProfileMedicationCorrelatedDiagnoses, False, None, False),
-            ("correlatedMedications", "correlatedMedications", ClinicalProfileMedicationCorrelatedMedications, False, None, False),
-            ("correlatedPhenotypes", "correlatedPhenotypes", ClinicalProfileMedicationCorrelatedPhenotypes, False, None, False),
-            ("correlatedProcedures", "correlatedProcedures", ClinicalProfileMedicationCorrelatedProcedures, False, None, False),
+            ("correlatedDiagnoses", "correlatedDiagnoses", ClinicalProfileLabScalarDistributionCorrelatedDiagnoses, False, None, False),
+            ("correlatedLabs", "correlatedLabs", ClinicalProfileLabScalarDistributionCorrelatedLabs, False, None, False),
+            ("correlatedMedications", "correlatedMedications", ClinicalProfileLabScalarDistributionCorrelatedMedications, False, None, False),
+            ("correlatedPhenotypes", "correlatedPhenotypes", ClinicalProfileLabScalarDistributionCorrelatedPhenotypes, False, None, False),
+            ("correlatedProcedures", "correlatedProcedures", ClinicalProfileLabScalarDistributionCorrelatedProcedures, False, None, False),
             ("dosage", "dosage", ClinicalProfileMedicationDosage, False, None, False),
             ("fractionOfSubjects", "fractionOfSubjects", float, False, None, True),
             ("frequencyPerYear", "frequencyPerYear", float, False, None, False),
             ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
             ("treatementDuration", "treatementDuration", float, False, None, False),
-        ])
-        return js
-
-
-class ClinicalProfileMedicationCorrelatedDiagnoses(backboneelement.BackboneElement):
-    """ Correlated diagnosies.
-    
-    An ordered list of  the diagnoses  that are most closely correlated.  This
-    list can be limited by the top "n" diagnoses and/or a cutoff on the
-    absolute value of the correlation coefficient.
-    """
-    
-    resource_type = "ClinicalProfileMedicationCorrelatedDiagnoses"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.abscorrelation = None
-        """ Minimum absolute value of correlation coefficient.
-        Type `float`. """
-        
-        self.entry = None
-        """ Correlation entry.
-        Type `ClinicalProfileMedicationCorrelatedDiagnosesEntry` (represented as `dict` in JSON). """
-        
-        self.topn = None
-        """ Number of diagnoses cutoff (e.g. top 10).
-        Type `int`. """
-        
-        super(ClinicalProfileMedicationCorrelatedDiagnoses, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClinicalProfileMedicationCorrelatedDiagnoses, self).elementProperties()
-        js.extend([
-            ("abscorrelation", "abscorrelation", float, False, None, False),
-            ("entry", "entry", ClinicalProfileMedicationCorrelatedDiagnosesEntry, False, None, False),
-            ("topn", "topn", int, False, None, False),
-        ])
-        return js
-
-
-class ClinicalProfileMedicationCorrelatedDiagnosesEntry(backboneelement.BackboneElement):
-    """ Correlation entry.
-    """
-    
-    resource_type = "ClinicalProfileMedicationCorrelatedDiagnosesEntry"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.code = None
-        """ Diagnosis code(s).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.coefficient = None
-        """ Correlation coefficient.
-        Type `float`. """
-        
-        super(ClinicalProfileMedicationCorrelatedDiagnosesEntry, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClinicalProfileMedicationCorrelatedDiagnosesEntry, self).elementProperties()
-        js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("coefficient", "coefficient", float, False, None, True),
-        ])
-        return js
-
-
-class ClinicalProfileMedicationCorrelatedMedications(backboneelement.BackboneElement):
-    """ Correlated medications.
-    
-    An ordered list of  the medications  that are most closely correlated.
-    This list can be limited by the top "n" medications and/or a cutoff on the
-    absolute value of the correlation coefficient.
-    """
-    
-    resource_type = "ClinicalProfileMedicationCorrelatedMedications"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.deviation = None
-        """ Deviation cutoff.
-        Type `float`. """
-        
-        self.entry = None
-        """ Correlation entry.
-        List of `ClinicalProfileMedicationCorrelatedMedicationsEntry` items (represented as `dict` in JSON). """
-        
-        self.topn = None
-        """ Number of medications cutoff (e.g. top 10).
-        Type `int`. """
-        
-        super(ClinicalProfileMedicationCorrelatedMedications, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClinicalProfileMedicationCorrelatedMedications, self).elementProperties()
-        js.extend([
-            ("deviation", "deviation", float, False, None, False),
-            ("entry", "entry", ClinicalProfileMedicationCorrelatedMedicationsEntry, True, None, False),
-            ("topn", "topn", int, False, None, False),
-        ])
-        return js
-
-
-class ClinicalProfileMedicationCorrelatedMedicationsEntry(backboneelement.BackboneElement):
-    """ Correlation entry.
-    """
-    
-    resource_type = "ClinicalProfileMedicationCorrelatedMedicationsEntry"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.category = None
-        """ Indicates the type of medication dispense (for example, where the
-        medication is expected to be consumed or administered (i.e.
-        inpatient or outpatient)).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.coefficient = None
-        """ Correlation coefficient.
-        Type `float`. """
-        
-        self.medicationCodeableConcept = None
-        """ Medication code(s).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.medicationReference = None
-        """ Medication code(s).
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        super(ClinicalProfileMedicationCorrelatedMedicationsEntry, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClinicalProfileMedicationCorrelatedMedicationsEntry, self).elementProperties()
-        js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("coefficient", "coefficient", float, False, None, True),
-            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
-            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
-        ])
-        return js
-
-
-class ClinicalProfileMedicationCorrelatedPhenotypes(backboneelement.BackboneElement):
-    """ Correlated phenotypes.
-    
-    An ordered list of  the phenotypes  that are most closely correlated.  This
-    list can be limited by the top "n" phenotypes and/or a cutoff on the
-    absolute value of the correlation coefficient.
-    """
-    
-    resource_type = "ClinicalProfileMedicationCorrelatedPhenotypes"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.abscorrelation = None
-        """ Minimum absolute value of correlation coefficient.
-        Type `float`. """
-        
-        self.entry = None
-        """ Correlation entry.
-        List of `ClinicalProfileMedicationCorrelatedPhenotypesEntry` items (represented as `dict` in JSON). """
-        
-        self.topn = None
-        """ Number of phenotypes cutoff (e.g. top 10).
-        Type `int`. """
-        
-        super(ClinicalProfileMedicationCorrelatedPhenotypes, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClinicalProfileMedicationCorrelatedPhenotypes, self).elementProperties()
-        js.extend([
-            ("abscorrelation", "abscorrelation", float, False, None, False),
-            ("entry", "entry", ClinicalProfileMedicationCorrelatedPhenotypesEntry, True, None, False),
-            ("topn", "topn", int, False, None, False),
-        ])
-        return js
-
-
-class ClinicalProfileMedicationCorrelatedPhenotypesEntry(backboneelement.BackboneElement):
-    """ Correlation entry.
-    
-    List of correlated phenotypes in descending order of the absolute value of
-    the correlation coefficient.
-    """
-    
-    resource_type = "ClinicalProfileMedicationCorrelatedPhenotypesEntry"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.code = None
-        """ Phenotype codes.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.coefficient = None
-        """ Correlation coefficient.
-        Type `float`. """
-        
-        super(ClinicalProfileMedicationCorrelatedPhenotypesEntry, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClinicalProfileMedicationCorrelatedPhenotypesEntry, self).elementProperties()
-        js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("coefficient", "coefficient", float, False, None, True),
-        ])
-        return js
-
-
-class ClinicalProfileMedicationCorrelatedProcedures(backboneelement.BackboneElement):
-    """ Correlated procedures.
-    
-    An ordered list of  the procedures  that are most closely correlated.  This
-    list can be limited by the top "n" procedures and/or a cutoff on the
-    absolute value of the correlation coefficient.
-    """
-    
-    resource_type = "ClinicalProfileMedicationCorrelatedProcedures"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.abscorrelation = None
-        """ Minimum absolute value of correlation coefficient.
-        Type `float`. """
-        
-        self.entry = None
-        """ Correlation entry.
-        List of `ClinicalProfileMedicationCorrelatedProceduresEntry` items (represented as `dict` in JSON). """
-        
-        self.topn = None
-        """ Number of rocedures cutoff (e.g. top 10).
-        Type `int`. """
-        
-        super(ClinicalProfileMedicationCorrelatedProcedures, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClinicalProfileMedicationCorrelatedProcedures, self).elementProperties()
-        js.extend([
-            ("abscorrelation", "abscorrelation", float, False, None, False),
-            ("entry", "entry", ClinicalProfileMedicationCorrelatedProceduresEntry, True, None, False),
-            ("topn", "topn", int, False, None, False),
-        ])
-        return js
-
-
-class ClinicalProfileMedicationCorrelatedProceduresEntry(backboneelement.BackboneElement):
-    """ Correlation entry.
-    """
-    
-    resource_type = "ClinicalProfileMedicationCorrelatedProceduresEntry"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.code = None
-        """ Procedure code(s).
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.coefficient = None
-        """ Correlation coefficient.
-        Type `float`. """
-        
-        super(ClinicalProfileMedicationCorrelatedProceduresEntry, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClinicalProfileMedicationCorrelatedProceduresEntry, self).elementProperties()
-        js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, True, None, True),
-            ("coefficient", "coefficient", float, False, None, True),
         ])
         return js
 
@@ -929,19 +964,23 @@ class ClinicalProfileProcedure(backboneelement.BackboneElement):
         
         self.correlatedDiagnoses = None
         """ Correlated diagnosies.
-        Type `ClinicalProfileMedicationCorrelatedDiagnoses` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedDiagnoses` (represented as `dict` in JSON). """
+        
+        self.correlatedLabs = None
+        """ Correlated labs.
+        Type `ClinicalProfileLabScalarDistributionCorrelatedLabs` (represented as `dict` in JSON). """
         
         self.correlatedMedications = None
         """ Correlated medications.
-        Type `ClinicalProfileMedicationCorrelatedMedications` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedMedications` (represented as `dict` in JSON). """
         
         self.correlatedPhenotypes = None
         """ Correlated phenotypes.
-        Type `ClinicalProfileMedicationCorrelatedPhenotypes` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedPhenotypes` (represented as `dict` in JSON). """
         
         self.correlatedProcedures = None
         """ Correlated procedures.
-        Type `ClinicalProfileMedicationCorrelatedProcedures` (represented as `dict` in JSON). """
+        Type `ClinicalProfileLabScalarDistributionCorrelatedProcedures` (represented as `dict` in JSON). """
         
         self.fractionOfSubjects = None
         """ Fraction of patients with this procedure per year.
@@ -957,10 +996,11 @@ class ClinicalProfileProcedure(backboneelement.BackboneElement):
         js = super(ClinicalProfileProcedure, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, True, None, True),
-            ("correlatedDiagnoses", "correlatedDiagnoses", ClinicalProfileMedicationCorrelatedDiagnoses, False, None, False),
-            ("correlatedMedications", "correlatedMedications", ClinicalProfileMedicationCorrelatedMedications, False, None, False),
-            ("correlatedPhenotypes", "correlatedPhenotypes", ClinicalProfileMedicationCorrelatedPhenotypes, False, None, False),
-            ("correlatedProcedures", "correlatedProcedures", ClinicalProfileMedicationCorrelatedProcedures, False, None, False),
+            ("correlatedDiagnoses", "correlatedDiagnoses", ClinicalProfileLabScalarDistributionCorrelatedDiagnoses, False, None, False),
+            ("correlatedLabs", "correlatedLabs", ClinicalProfileLabScalarDistributionCorrelatedLabs, False, None, False),
+            ("correlatedMedications", "correlatedMedications", ClinicalProfileLabScalarDistributionCorrelatedMedications, False, None, False),
+            ("correlatedPhenotypes", "correlatedPhenotypes", ClinicalProfileLabScalarDistributionCorrelatedPhenotypes, False, None, False),
+            ("correlatedProcedures", "correlatedProcedures", ClinicalProfileLabScalarDistributionCorrelatedProcedures, False, None, False),
             ("fractionOfSubjects", "fractionOfSubjects", float, False, None, True),
             ("frequencyPerYear", "frequencyPerYear", float, False, None, False),
         ])
