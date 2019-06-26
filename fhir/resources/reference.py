@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Reference) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/Reference) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -21,14 +21,6 @@ class Reference(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.display = None
-        """ Text alternative for the resource.
-        Type `str`. """
-        
-        self.identifier = None
-        """ Logical reference, when literal reference is not known.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
         self.reference = None
         """ Literal reference, Relative, internal or absolute URL.
         Type `str`. """
@@ -37,21 +29,25 @@ class Reference(element.Element):
         """ Type the reference refers to (e.g. "Patient").
         Type `str`. """
         
+        self.identifier = None
+        """ Logical reference, when literal reference is not known.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.display = None
+        """ Text alternative for the resource.
+        Type `str`. """
+        
         super(Reference, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Reference, self).elementProperties()
         js.extend([
-            ("display", "display", str, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("reference", "reference", str, False, None, False),
             ("type", "type", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("display", "display", str, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from . import identifier

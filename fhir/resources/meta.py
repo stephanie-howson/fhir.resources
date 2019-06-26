@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Meta) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/Meta) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -25,9 +25,17 @@ class Meta(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.versionId = None
+        """ Version specific identifier.
+        Type `str`. """
+        
         self.lastUpdated = None
         """ When the resource version last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.source = None
+        """ Identifies where the resource comes from.
+        Type `str`. """
         
         self.profile = None
         """ Profiles this resource claims to conform to.
@@ -37,39 +45,24 @@ class Meta(element.Element):
         """ Security Labels applied to this resource.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.source = None
-        """ Identifies where the resource comes from.
-        Type `str`. """
-        
         self.tag = None
         """ Tags applied to this resource.
         List of `Coding` items (represented as `dict` in JSON). """
-        
-        self.versionId = None
-        """ Version specific identifier.
-        Type `str`. """
         
         super(Meta, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Meta, self).elementProperties()
         js.extend([
+            ("versionId", "versionId", str, False, None, False),
             ("lastUpdated", "lastUpdated", fhirdate.FHIRDate, False, None, False),
+            ("source", "source", str, False, None, False),
             ("profile", "profile", str, True, None, False),
             ("security", "security", coding.Coding, True, None, False),
-            ("source", "source", str, False, None, False),
             ("tag", "tag", coding.Coding, True, None, False),
-            ("versionId", "versionId", str, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
-try:
-    from . import fhirdate
-except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+from . import fhirdate
+from . import coding

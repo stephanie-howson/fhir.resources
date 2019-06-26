@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Element) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/Element) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -23,13 +23,13 @@ class Element(fhirabstractbase.FHIRAbstractBase):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.extension = None
-        """ Additional content defined by implementations.
-        List of `Extension` items (represented as `dict` in JSON). """
-        
         self.id = None
         """ Unique id for inter-element referencing.
         Type `str`. """
+        
+        self.extension = None
+        """ Additional content defined by implementations.
+        List of `Extension` items (represented as `dict` in JSON). """
         
         super(Element, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -37,8 +37,8 @@ class Element(fhirabstractbase.FHIRAbstractBase):
         js = super(Element, self).elementProperties()
         from . import extension
         js.extend([
-            ("extension", "extension", extension.Extension, True, None, False),
             ("id", "id", str, False, None, False),
+            ("extension", "extension", extension.Extension, True, None, False),
         ])
         return js
 

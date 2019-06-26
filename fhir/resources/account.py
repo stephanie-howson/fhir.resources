@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Account) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/Account) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -25,10 +25,38 @@ class Account(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.identifier = None
+        """ Account number.
+        List of `Identifier` items (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ active | inactive | entered-in-error | on-hold | unknown.
+        Type `str`. """
+        
+        self.type = None
+        """ E.g. patient, expense, depreciation.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.name = None
+        """ Human-readable label.
+        Type `str`. """
+        
+        self.subject = None
+        """ The entity that caused the expenses.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
+        self.servicePeriod = None
+        """ Transaction window.
+        Type `Period` (represented as `dict` in JSON). """
+        
         self.coverage = None
         """ The party(s) that are responsible for covering the payment of this
         account, and what order should they be applied to the account.
         List of `AccountCoverage` items (represented as `dict` in JSON). """
+        
+        self.owner = None
+        """ Entity managing the Account.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.description = None
         """ Explanation of purpose/use.
@@ -38,54 +66,26 @@ class Account(domainresource.DomainResource):
         """ The parties ultimately responsible for balancing the Account.
         List of `AccountGuarantor` items (represented as `dict` in JSON). """
         
-        self.identifier = None
-        """ Account number.
-        List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.name = None
-        """ Human-readable label.
-        Type `str`. """
-        
-        self.owner = None
-        """ Entity managing the Account.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
         self.partOf = None
         """ Reference to a parent Account.
         Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.servicePeriod = None
-        """ Transaction window.
-        Type `Period` (represented as `dict` in JSON). """
-        
-        self.status = None
-        """ active | inactive | entered-in-error | on-hold | unknown.
-        Type `str`. """
-        
-        self.subject = None
-        """ The entity that caused the expenses.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ E.g. patient, expense, depreciation.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(Account, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Account, self).elementProperties()
         js.extend([
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("status", "status", str, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("name", "name", str, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, True, None, False),
+            ("servicePeriod", "servicePeriod", period.Period, False, None, False),
             ("coverage", "coverage", AccountCoverage, True, None, False),
+            ("owner", "owner", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, False),
             ("guarantor", "guarantor", AccountGuarantor, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("name", "name", str, False, None, False),
-            ("owner", "owner", fhirreference.FHIRReference, False, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
-            ("servicePeriod", "servicePeriod", period.Period, False, None, False),
-            ("status", "status", str, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -144,13 +144,13 @@ class AccountGuarantor(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.onHold = None
-        """ Credit or other hold applied.
-        Type `bool`. """
-        
         self.party = None
         """ Responsible entity.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.onHold = None
+        """ Credit or other hold applied.
+        Type `bool`. """
         
         self.period = None
         """ Guarantee account during.
@@ -161,27 +161,14 @@ class AccountGuarantor(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AccountGuarantor, self).elementProperties()
         js.extend([
-            ("onHold", "onHold", bool, False, None, False),
             ("party", "party", fhirreference.FHIRReference, False, None, True),
+            ("onHold", "onHold", bool, False, None, False),
             ("period", "period", period.Period, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from . import identifier
+from . import codeableconcept
+from . import fhirreference
+from . import period

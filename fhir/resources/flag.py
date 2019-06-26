@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Flag) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/Flag) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -24,9 +24,13 @@ class Flag(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.author = None
-        """ Flag creator.
-        Type `FHIRReference` (represented as `dict` in JSON). """
+        self.identifier = None
+        """ Business identifier.
+        List of `Identifier` items (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ active | inactive | entered-in-error.
+        Type `str`. """
         
         self.category = None
         """ Clinical, administrative, etc..
@@ -36,24 +40,20 @@ class Flag(domainresource.DomainResource):
         """ Coded or textual message to display to user.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.encounter = None
-        """ Alert relevant during encounter.
+        self.subject = None
+        """ Who/What is flag about?.
         Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.identifier = None
-        """ Business identifier.
-        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.period = None
         """ Time period when flag is active.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.status = None
-        """ active | inactive | entered-in-error.
-        Type `str`. """
+        self.encounter = None
+        """ Alert relevant during encounter.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.subject = None
-        """ Who/What is flag about?.
+        self.author = None
+        """ Flag creator.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(Flag, self).__init__(jsondict=jsondict, strict=strict)
@@ -61,32 +61,19 @@ class Flag(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Flag, self).elementProperties()
         js.extend([
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("status", "status", str, False, None, True),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("period", "period", period.Period, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("author", "author", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from . import identifier
+from . import codeableconcept
+from . import fhirreference
+from . import period

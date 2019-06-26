@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SubstanceAmount) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/SubstanceAmount) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -48,10 +48,6 @@ class SubstanceAmount(backboneelement.BackboneElement):
         be captured in this field.
         Type `str`. """
         
-        self.amountText = None
-        """ A textual comment on a numeric value.
-        Type `str`. """
-        
         self.amountType = None
         """ Most elements that require a quantitative value will also have a
         field called amount type. Amount type should always be specified
@@ -62,6 +58,10 @@ class SubstanceAmount(backboneelement.BackboneElement):
         effort should be made to use same the amount type for all related
         definitional elements.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.amountText = None
+        """ A textual comment on a numeric value.
+        Type `str`. """
         
         self.referenceRange = None
         """ Reference range of possible or expected values.
@@ -75,8 +75,8 @@ class SubstanceAmount(backboneelement.BackboneElement):
             ("amountQuantity", "amountQuantity", quantity.Quantity, False, "amount", False),
             ("amountRange", "amountRange", range.Range, False, "amount", False),
             ("amountString", "amountString", str, False, "amount", False),
-            ("amountText", "amountText", str, False, None, False),
             ("amountType", "amountType", codeableconcept.CodeableConcept, False, None, False),
+            ("amountText", "amountText", str, False, None, False),
             ("referenceRange", "referenceRange", SubstanceAmountReferenceRange, False, None, False),
         ])
         return js
@@ -98,12 +98,12 @@ class SubstanceAmountReferenceRange(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.highLimit = None
-        """ Upper limit possible or expected.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
         self.lowLimit = None
         """ Lower limit possible or expected.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.highLimit = None
+        """ Upper limit possible or expected.
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(SubstanceAmountReferenceRange, self).__init__(jsondict=jsondict, strict=strict)
@@ -111,22 +111,12 @@ class SubstanceAmountReferenceRange(element.Element):
     def elementProperties(self):
         js = super(SubstanceAmountReferenceRange, self).elementProperties()
         js.extend([
-            ("highLimit", "highLimit", quantity.Quantity, False, None, False),
             ("lowLimit", "lowLimit", quantity.Quantity, False, None, False),
+            ("highLimit", "highLimit", quantity.Quantity, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from . import quantity
+from . import range
+from . import codeableconcept

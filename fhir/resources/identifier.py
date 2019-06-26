@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Identifier) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/Identifier) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -24,55 +24,45 @@ class Identifier(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.assigner = None
-        """ Organization that issued id (may be just text).
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.period = None
-        """ Time period when id is/was valid for use.
-        Type `Period` (represented as `dict` in JSON). """
-        
-        self.system = None
-        """ The namespace for the identifier value.
+        self.use = None
+        """ usual | official | temp | secondary | old (If known).
         Type `str`. """
         
         self.type = None
         """ Description of identifier.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.use = None
-        """ usual | official | temp | secondary | old (If known).
+        self.system = None
+        """ The namespace for the identifier value.
         Type `str`. """
         
         self.value = None
         """ The value that is unique.
         Type `str`. """
         
+        self.period = None
+        """ Time period when id is/was valid for use.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.assigner = None
+        """ Organization that issued id (may be just text).
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
         super(Identifier, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Identifier, self).elementProperties()
         js.extend([
-            ("assigner", "assigner", fhirreference.FHIRReference, False, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("system", "system", str, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
             ("use", "use", str, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("system", "system", str, False, None, False),
             ("value", "value", str, False, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("assigner", "assigner", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from . import codeableconcept
+from . import period
+from . import fhirreference

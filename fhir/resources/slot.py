@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Slot) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/Slot) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -21,33 +21,9 @@ class Slot(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.appointmentType = None
-        """ The style of appointment or patient that may be booked in the slot
-        (not service type).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.comment = None
-        """ Comments on the slot to describe any extended information. Such as
-        custom constraints on the slot.
-        Type `str`. """
-        
-        self.end = None
-        """ Date/Time that the slot is to conclude.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
         self.identifier = None
         """ External Ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.overbooked = None
-        """ This slot has already been overbooked, appointments are unlikely to
-        be accepted for this time.
-        Type `bool`. """
-        
-        self.schedule = None
-        """ The schedule resource that this slot defines an interval of status
-        information.
-        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.serviceCategory = None
         """ A broad categorization of the service that is to be performed
@@ -66,12 +42,36 @@ class Slot(domainresource.DomainResource):
         the service requested in this appointment.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
+        self.appointmentType = None
+        """ The style of appointment or patient that may be booked in the slot
+        (not service type).
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.schedule = None
+        """ The schedule resource that this slot defines an interval of status
+        information.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ busy | free | busy-unavailable | busy-tentative | entered-in-error.
+        Type `str`. """
+        
         self.start = None
         """ Date/Time that the slot is to begin.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.status = None
-        """ busy | free | busy-unavailable | busy-tentative | entered-in-error.
+        self.end = None
+        """ Date/Time that the slot is to conclude.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.overbooked = None
+        """ This slot has already been overbooked, appointments are unlikely to
+        be accepted for this time.
+        Type `bool`. """
+        
+        self.comment = None
+        """ Comments on the slot to describe any extended information. Such as
+        custom constraints on the slot.
         Type `str`. """
         
         super(Slot, self).__init__(jsondict=jsondict, strict=strict)
@@ -79,35 +79,22 @@ class Slot(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Slot, self).elementProperties()
         js.extend([
-            ("appointmentType", "appointmentType", codeableconcept.CodeableConcept, False, None, False),
-            ("comment", "comment", str, False, None, False),
-            ("end", "end", fhirdate.FHIRDate, False, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("overbooked", "overbooked", bool, False, None, False),
-            ("schedule", "schedule", fhirreference.FHIRReference, False, None, True),
             ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, True, None, False),
             ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
             ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
-            ("start", "start", fhirdate.FHIRDate, False, None, True),
+            ("appointmentType", "appointmentType", codeableconcept.CodeableConcept, False, None, False),
+            ("schedule", "schedule", fhirreference.FHIRReference, False, None, True),
             ("status", "status", str, False, None, True),
+            ("start", "start", fhirdate.FHIRDate, False, None, True),
+            ("end", "end", fhirdate.FHIRDate, False, None, True),
+            ("overbooked", "overbooked", bool, False, None, False),
+            ("comment", "comment", str, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import fhirdate
-except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from . import identifier
+from . import codeableconcept
+from . import fhirreference
+from . import fhirdate

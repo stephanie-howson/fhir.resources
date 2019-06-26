@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SubstanceNucleicAcid) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/SubstanceNucleicAcid) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -24,13 +24,10 @@ class SubstanceNucleicAcid(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.areaOfHybridisation = None
-        """ The area of hybridisation shall be described if applicable for
-        double stranded RNA or DNA. The number associated with the subunit
-        followed by the number associated to the residue shall be specified
-        in increasing order. The underscore “” shall be used as separator
-        as follows: “Subunitnumber Residue”.
-        Type `str`. """
+        self.sequenceType = None
+        """ The type of the sequence shall be specified based on a controlled
+        vocabulary.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.numberOfSubunits = None
         """ The number of linear sequences of nucleotides linked through
@@ -40,13 +37,16 @@ class SubstanceNucleicAcid(domainresource.DomainResource):
         source, the assumption is that there is 1 subunit.
         Type `int`. """
         
+        self.areaOfHybridisation = None
+        """ The area of hybridisation shall be described if applicable for
+        double stranded RNA or DNA. The number associated with the subunit
+        followed by the number associated to the residue shall be specified
+        in increasing order. The underscore “” shall be used as separator
+        as follows: “Subunitnumber Residue”.
+        Type `str`. """
+        
         self.oligoNucleotideType = None
         """ (TBC).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.sequenceType = None
-        """ The type of the sequence shall be specified based on a controlled
-        vocabulary.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.subunit = None
@@ -60,10 +60,10 @@ class SubstanceNucleicAcid(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SubstanceNucleicAcid, self).elementProperties()
         js.extend([
-            ("areaOfHybridisation", "areaOfHybridisation", str, False, None, False),
-            ("numberOfSubunits", "numberOfSubunits", int, False, None, False),
-            ("oligoNucleotideType", "oligoNucleotideType", codeableconcept.CodeableConcept, False, None, False),
             ("sequenceType", "sequenceType", codeableconcept.CodeableConcept, False, None, False),
+            ("numberOfSubunits", "numberOfSubunits", int, False, None, False),
+            ("areaOfHybridisation", "areaOfHybridisation", str, False, None, False),
+            ("oligoNucleotideType", "oligoNucleotideType", codeableconcept.CodeableConcept, False, None, False),
             ("subunit", "subunit", SubstanceNucleicAcidSubunit, True, None, False),
         ])
         return js
@@ -87,21 +87,12 @@ class SubstanceNucleicAcidSubunit(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.fivePrime = None
-        """ The nucleotide present at the 5’ terminal shall be specified based
-        on a controlled vocabulary. Since the sequence is represented from
-        the 5' to the 3' end, the 5’ prime nucleotide is the letter at the
-        first position in the sequence. A separate representation would be
-        redundant.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.length = None
-        """ The length of the sequence shall be captured.
+        self.subunit = None
+        """ Index of linear sequences of nucleic acids in order of decreasing
+        length. Sequences of the same length will be ordered by molecular
+        weight. Subunits that have identical sequences will be repeated and
+        have sequential subscripts.
         Type `int`. """
-        
-        self.linkage = None
-        """ The linkages between sugar residues will also be captured.
-        List of `SubstanceNucleicAcidSubunitLinkage` items (represented as `dict` in JSON). """
         
         self.sequence = None
         """ Actual nucleotide sequence notation from 5' to 3' end using
@@ -110,20 +101,21 @@ class SubstanceNucleicAcidSubunit(backboneelement.BackboneElement):
         captured.
         Type `str`. """
         
+        self.length = None
+        """ The length of the sequence shall be captured.
+        Type `int`. """
+        
         self.sequenceAttachment = None
         """ (TBC).
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.subunit = None
-        """ Index of linear sequences of nucleic acids in order of decreasing
-        length. Sequences of the same length will be ordered by molecular
-        weight. Subunits that have identical sequences will be repeated and
-        have sequential subscripts.
-        Type `int`. """
-        
-        self.sugar = None
-        """ 5.3.6.8.1 Sugar ID (Mandatory).
-        List of `SubstanceNucleicAcidSubunitSugar` items (represented as `dict` in JSON). """
+        self.fivePrime = None
+        """ The nucleotide present at the 5’ terminal shall be specified based
+        on a controlled vocabulary. Since the sequence is represented from
+        the 5' to the 3' end, the 5’ prime nucleotide is the letter at the
+        first position in the sequence. A separate representation would be
+        redundant.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.threePrime = None
         """ The nucleotide present at the 3’ terminal shall be specified based
@@ -133,19 +125,27 @@ class SubstanceNucleicAcidSubunit(backboneelement.BackboneElement):
         redundant.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.linkage = None
+        """ The linkages between sugar residues will also be captured.
+        List of `SubstanceNucleicAcidSubunitLinkage` items (represented as `dict` in JSON). """
+        
+        self.sugar = None
+        """ 5.3.6.8.1 Sugar ID (Mandatory).
+        List of `SubstanceNucleicAcidSubunitSugar` items (represented as `dict` in JSON). """
+        
         super(SubstanceNucleicAcidSubunit, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SubstanceNucleicAcidSubunit, self).elementProperties()
         js.extend([
-            ("fivePrime", "fivePrime", codeableconcept.CodeableConcept, False, None, False),
-            ("length", "length", int, False, None, False),
-            ("linkage", "linkage", SubstanceNucleicAcidSubunitLinkage, True, None, False),
-            ("sequence", "sequence", str, False, None, False),
-            ("sequenceAttachment", "sequenceAttachment", attachment.Attachment, False, None, False),
             ("subunit", "subunit", int, False, None, False),
-            ("sugar", "sugar", SubstanceNucleicAcidSubunitSugar, True, None, False),
+            ("sequence", "sequence", str, False, None, False),
+            ("length", "length", int, False, None, False),
+            ("sequenceAttachment", "sequenceAttachment", attachment.Attachment, False, None, False),
+            ("fivePrime", "fivePrime", codeableconcept.CodeableConcept, False, None, False),
             ("threePrime", "threePrime", codeableconcept.CodeableConcept, False, None, False),
+            ("linkage", "linkage", SubstanceNucleicAcidSubunitLinkage, True, None, False),
+            ("sugar", "sugar", SubstanceNucleicAcidSubunitSugar, True, None, False),
         ])
         return js
 
@@ -241,16 +241,6 @@ class SubstanceNucleicAcidSubunitSugar(backboneelement.BackboneElement):
         return js
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from . import codeableconcept
+from . import attachment
+from . import identifier

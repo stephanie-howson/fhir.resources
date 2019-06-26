@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Ratio) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/Ratio) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -24,12 +24,12 @@ class Ratio(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.denominator = None
-        """ Denominator value.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
         self.numerator = None
         """ Numerator value.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.denominator = None
+        """ Denominator value.
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(Ratio, self).__init__(jsondict=jsondict, strict=strict)
@@ -37,14 +37,10 @@ class Ratio(element.Element):
     def elementProperties(self):
         js = super(Ratio, self).elementProperties()
         js.extend([
-            ("denominator", "denominator", quantity.Quantity, False, None, False),
             ("numerator", "numerator", quantity.Quantity, False, None, False),
+            ("denominator", "denominator", quantity.Quantity, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from . import quantity

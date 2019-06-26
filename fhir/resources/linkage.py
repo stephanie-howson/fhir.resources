@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Linkage) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/Linkage) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -68,27 +68,23 @@ class LinkageItem(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.resource = None
-        """ Resource being linked.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
         self.type = None
         """ source | alternate | historical.
         Type `str`. """
+        
+        self.resource = None
+        """ Resource being linked.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(LinkageItem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(LinkageItem, self).elementProperties()
         js.extend([
-            ("resource", "resource", fhirreference.FHIRReference, False, None, True),
             ("type", "type", str, False, None, True),
+            ("resource", "resource", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
 
-import sys
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from . import fhirreference

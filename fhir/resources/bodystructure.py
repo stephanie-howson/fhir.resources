@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/BodyStructure) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/BodyStructure) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -25,21 +25,17 @@ class BodyStructure(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
-        """ Whether this record is in active use.
-        Type `bool`. """
-        
-        self.description = None
-        """ Text description.
-        Type `str`. """
-        
         self.identifier = None
         """ Bodystructure identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.image = None
-        """ Attached images.
-        List of `Attachment` items (represented as `dict` in JSON). """
+        self.active = None
+        """ Whether this record is in active use.
+        Type `bool`. """
+        
+        self.morphology = None
+        """ Kind of Structure.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.location = None
         """ Body site.
@@ -49,9 +45,13 @@ class BodyStructure(domainresource.DomainResource):
         """ Body site modifier.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.morphology = None
-        """ Kind of Structure.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.description = None
+        """ Text description.
+        Type `str`. """
+        
+        self.image = None
+        """ Attached images.
+        List of `Attachment` items (represented as `dict` in JSON). """
         
         self.patient = None
         """ Who this is about.
@@ -62,32 +62,19 @@ class BodyStructure(domainresource.DomainResource):
     def elementProperties(self):
         js = super(BodyStructure, self).elementProperties()
         js.extend([
-            ("active", "active", bool, False, None, False),
-            ("description", "description", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("image", "image", attachment.Attachment, True, None, False),
+            ("active", "active", bool, False, None, False),
+            ("morphology", "morphology", codeableconcept.CodeableConcept, False, None, False),
             ("location", "location", codeableconcept.CodeableConcept, False, None, False),
             ("locationQualifier", "locationQualifier", codeableconcept.CodeableConcept, True, None, False),
-            ("morphology", "morphology", codeableconcept.CodeableConcept, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("image", "image", attachment.Attachment, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from . import identifier
+from . import codeableconcept
+from . import attachment
+from . import fhirreference

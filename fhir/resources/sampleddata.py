@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SampledData) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/SampledData) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -24,13 +24,13 @@ class SampledData(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.data = None
-        """ Decimal values with spaces, or "E" | "U" | "L".
-        Type `str`. """
+        self.origin = None
+        """ Zero value and units.
+        Type `Quantity` (represented as `dict` in JSON). """
         
-        self.dimensions = None
-        """ Number of sample points at each time point.
-        Type `int`. """
+        self.period = None
+        """ Number of milliseconds between samples.
+        Type `float`. """
         
         self.factor = None
         """ Multiply data by this before adding to origin.
@@ -40,36 +40,32 @@ class SampledData(element.Element):
         """ Lower limit of detection.
         Type `float`. """
         
-        self.origin = None
-        """ Zero value and units.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
-        self.period = None
-        """ Number of milliseconds between samples.
-        Type `float`. """
-        
         self.upperLimit = None
         """ Upper limit of detection.
         Type `float`. """
+        
+        self.dimensions = None
+        """ Number of sample points at each time point.
+        Type `int`. """
+        
+        self.data = None
+        """ Decimal values with spaces, or "E" | "U" | "L".
+        Type `str`. """
         
         super(SampledData, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SampledData, self).elementProperties()
         js.extend([
-            ("data", "data", str, False, None, False),
-            ("dimensions", "dimensions", int, False, None, True),
-            ("factor", "factor", float, False, None, False),
-            ("lowerLimit", "lowerLimit", float, False, None, False),
             ("origin", "origin", quantity.Quantity, False, None, True),
             ("period", "period", float, False, None, True),
+            ("factor", "factor", float, False, None, False),
+            ("lowerLimit", "lowerLimit", float, False, None, False),
             ("upperLimit", "upperLimit", float, False, None, False),
+            ("dimensions", "dimensions", int, False, None, True),
+            ("data", "data", str, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from . import quantity

@@ -5,8 +5,8 @@
 
 import sys
 import logging
-
-logger = logging.getLogger(__name__)
+from collections import OrderedDict
+from json import dumps, loads
 
 
 class FHIRValidationError(Exception):
@@ -48,15 +48,12 @@ class FHIRAbstractBase(object):
     
     def __init__(self, jsondict=None, strict=True):
         """ Initializer. If strict is true, raises on errors, otherwise uses
-        `logger.warning()`.
+        `logging.warning()`.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-        
-        self._resolved = None
-        """ Dictionary of resolved resources. """
         
         self._owner = None
         """ Points to the parent resource, if there is one. """
@@ -69,7 +66,7 @@ class FHIRAbstractBase(object):
                     self.update_with_json(jsondict)
                 except FHIRValidationError as e:
                     for err in e.errors:
-                        logger.warning(err)
+                        logging.warning(err)
     
     
     # MARK: Instantiation from JSON
@@ -143,7 +140,7 @@ class FHIRAbstractBase(object):
         """ Returns a list of tuples, one tuple for each property that should
         be serialized, as: ("name", "json_name", type, is_list, "of_many", not_optional)
         """
-        return []
+        return [("resourceType", "resourceType", str, False, None, False)]
     
     def update_with_json(self, jsondict):
         """ Update the receiver with data in a JSON dictionary.
@@ -161,7 +158,7 @@ class FHIRAbstractBase(object):
         
         # loop all registered properties and instantiate
         errs = []
-        valid = set(['resourceType'])   # used to also contain `fhir_comments` until STU-3
+        valid = set(['resourceType'])
         found = set()
         nonoptionals = set()
         for name, jsname, typ, is_list, of_many, not_optional in self.elementProperties():
@@ -241,7 +238,7 @@ class FHIRAbstractBase(object):
             required properties are empty
         :returns: A validated dict object that can be JSON serialized
         """
-        js = {}
+        js = OrderedDict()
         errs = []
         
         # JSONify all registered properties
@@ -295,7 +292,7 @@ class FHIRAbstractBase(object):
         
         if len(errs) > 0:
             raise FHIRValidationError(errs)
-        return js
+        return loads(dumps(js))
     
     def _matches_type(self, value, typ):
         if value is None:
@@ -309,7 +306,7 @@ class FHIRAbstractBase(object):
         return False
     
     
-    # MARK: Handling References
+    # MARK: Owner
     
     def owningResource(self):
         """ Walks the owner hierarchy and returns the next parent that is a
@@ -328,30 +325,4 @@ class FHIRAbstractBase(object):
         while owner is not None and not 'Bundle' == owner.resource_type:
             owner = owner._owner
         return owner
-    
-    def resolvedReference(self, refid):
-        """ Returns the resolved reference with the given id, if it has been
-        resolved already. If it hasn't, forwards the call to its owner if it
-        has one.
-        
-        You should probably use `resolve()` on the `FHIRReference` itself.
-        
-        :param refid: The id of the resource to resolve
-        :returns: An instance of `Resource`, if it was found
-        """
-        if self._resolved and refid in self._resolved:
-            return self._resolved[refid]
-        return self._owner.resolvedReference(refid) if self._owner is not None else None
-    
-    def didResolveReference(self, refid, resolved):
-        """ Called by `FHIRResource` when it resolves a reference. Stores the
-        resolved reference into the `_resolved` dictionary.
-        
-        :param refid: The id of the resource that was resolved
-        :param refid: The resolved resource, ready to be cached
-        """
-        if self._resolved is not None:
-            self._resolved[refid] = resolved
-        else:
-            self._resolved = {refid: resolved}
 

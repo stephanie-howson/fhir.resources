@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Range) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/Range) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -23,12 +23,12 @@ class Range(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.high = None
-        """ High limit.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
         self.low = None
         """ Low limit.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.high = None
+        """ High limit.
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(Range, self).__init__(jsondict=jsondict, strict=strict)
@@ -36,14 +36,10 @@ class Range(element.Element):
     def elementProperties(self):
         js = super(Range, self).elementProperties()
         js.extend([
-            ("high", "high", quantity.Quantity, False, None, False),
             ("low", "low", quantity.Quantity, False, None, False),
+            ("high", "high", quantity.Quantity, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from . import quantity

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Population) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/Population) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -24,16 +24,20 @@ class Population(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.ageCodeableConcept = None
-        """ The age of the specific population.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         self.ageRange = None
         """ The age of the specific population.
         Type `Range` (represented as `dict` in JSON). """
         
+        self.ageCodeableConcept = None
+        """ The age of the specific population.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.gender = None
         """ The gender of the specific population.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.race = None
+        """ Race of the specific population.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.physiologicalCondition = None
@@ -41,30 +45,19 @@ class Population(backboneelement.BackboneElement):
         which this applies.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.race = None
-        """ Race of the specific population.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         super(Population, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Population, self).elementProperties()
         js.extend([
-            ("ageCodeableConcept", "ageCodeableConcept", codeableconcept.CodeableConcept, False, "age", False),
             ("ageRange", "ageRange", range.Range, False, "age", False),
+            ("ageCodeableConcept", "ageCodeableConcept", codeableconcept.CodeableConcept, False, "age", False),
             ("gender", "gender", codeableconcept.CodeableConcept, False, None, False),
-            ("physiologicalCondition", "physiologicalCondition", codeableconcept.CodeableConcept, False, None, False),
             ("race", "race", codeableconcept.CodeableConcept, False, None, False),
+            ("physiologicalCondition", "physiologicalCondition", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from . import range
+from . import codeableconcept

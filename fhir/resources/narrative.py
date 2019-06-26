@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Narrative) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/Narrative) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -25,12 +25,12 @@ class Narrative(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.div = None
-        """ Limited xhtml content.
-        Type `str`. """
-        
         self.status = None
         """ generated | extensions | additional | empty.
+        Type `str`. """
+        
+        self.div = None
+        """ Limited xhtml content.
         Type `str`. """
         
         super(Narrative, self).__init__(jsondict=jsondict, strict=strict)
@@ -38,8 +38,8 @@ class Narrative(element.Element):
     def elementProperties(self):
         js = super(Narrative, self).elementProperties()
         js.extend([
-            ("div", "div", str, False, None, True),
             ("status", "status", str, False, None, True),
+            ("div", "div", str, False, None, True),
         ])
         return js
 

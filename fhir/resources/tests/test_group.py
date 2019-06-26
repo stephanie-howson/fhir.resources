@@ -23,6 +23,20 @@ class GroupTests(unittest.TestCase):
             js = json.load(handle)
             self.assertEqual("Group", js["resourceType"])
         return group.Group(js)
+
+    def test_create_group(self):
+        g = group.Group()
+        g.actual = True
+        g.type = "person"
+        g.id = "lab-ALL-ALL-ALL"
+        js = g.as_json()
+        print(js)
+        self.assertEqual(json.loads("""{
+  "resourceType": "Group",
+  "id": "lab-ALL-ALL-ALL",
+  "type": "person",
+  "actual": true
+}"""), g.as_json())
     
     def testGroup1(self):
         inst = self.instantiate_from("group-example.json")

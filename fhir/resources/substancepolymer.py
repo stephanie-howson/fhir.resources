@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SubstancePolymer) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/SubstancePolymer) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -25,13 +25,13 @@ class SubstancePolymer(domainresource.DomainResource):
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.copolymerConnectivity = None
-        """ Todo.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
         self.geometry = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.copolymerConnectivity = None
+        """ Todo.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.modification = None
         """ Todo.
@@ -51,8 +51,8 @@ class SubstancePolymer(domainresource.DomainResource):
         js = super(SubstancePolymer, self).elementProperties()
         js.extend([
             ("class_fhir", "class", codeableconcept.CodeableConcept, False, None, False),
-            ("copolymerConnectivity", "copolymerConnectivity", codeableconcept.CodeableConcept, True, None, False),
             ("geometry", "geometry", codeableconcept.CodeableConcept, False, None, False),
+            ("copolymerConnectivity", "copolymerConnectivity", codeableconcept.CodeableConcept, True, None, False),
             ("modification", "modification", str, True, None, False),
             ("monomerSet", "monomerSet", SubstancePolymerMonomerSet, True, None, False),
             ("repeat", "repeat", SubstancePolymerRepeat, True, None, False),
@@ -109,14 +109,6 @@ class SubstancePolymerMonomerSetStartingMaterial(backboneelement.BackboneElement
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
-        """ Todo.
-        Type `SubstanceAmount` (represented as `dict` in JSON). """
-        
-        self.isDefining = None
-        """ Todo.
-        Type `bool`. """
-        
         self.material = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -125,15 +117,23 @@ class SubstancePolymerMonomerSetStartingMaterial(backboneelement.BackboneElement
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.isDefining = None
+        """ Todo.
+        Type `bool`. """
+        
+        self.amount = None
+        """ Todo.
+        Type `SubstanceAmount` (represented as `dict` in JSON). """
+        
         super(SubstancePolymerMonomerSetStartingMaterial, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SubstancePolymerMonomerSetStartingMaterial, self).elementProperties()
         js.extend([
-            ("amount", "amount", substanceamount.SubstanceAmount, False, None, False),
-            ("isDefining", "isDefining", bool, False, None, False),
             ("material", "material", codeableconcept.CodeableConcept, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("isDefining", "isDefining", bool, False, None, False),
+            ("amount", "amount", substanceamount.SubstanceAmount, False, None, False),
         ])
         return js
 
@@ -152,31 +152,31 @@ class SubstancePolymerRepeat(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.averageMolecularFormula = None
-        """ Todo.
-        Type `str`. """
-        
         self.numberOfUnits = None
         """ Todo.
         Type `int`. """
         
-        self.repeatUnit = None
+        self.averageMolecularFormula = None
         """ Todo.
-        List of `SubstancePolymerRepeatRepeatUnit` items (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.repeatUnitAmountType = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.repeatUnit = None
+        """ Todo.
+        List of `SubstancePolymerRepeatRepeatUnit` items (represented as `dict` in JSON). """
         
         super(SubstancePolymerRepeat, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SubstancePolymerRepeat, self).elementProperties()
         js.extend([
-            ("averageMolecularFormula", "averageMolecularFormula", str, False, None, False),
             ("numberOfUnits", "numberOfUnits", int, False, None, False),
-            ("repeatUnit", "repeatUnit", SubstancePolymerRepeatRepeatUnit, True, None, False),
+            ("averageMolecularFormula", "averageMolecularFormula", str, False, None, False),
             ("repeatUnitAmountType", "repeatUnitAmountType", codeableconcept.CodeableConcept, False, None, False),
+            ("repeatUnit", "repeatUnit", SubstancePolymerRepeatRepeatUnit, True, None, False),
         ])
         return js
 
@@ -195,14 +195,6 @@ class SubstancePolymerRepeatRepeatUnit(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
-        """ Todo.
-        Type `SubstanceAmount` (represented as `dict` in JSON). """
-        
-        self.degreeOfPolymerisation = None
-        """ Todo.
-        List of `SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation` items (represented as `dict` in JSON). """
-        
         self.orientationOfPolymerisation = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -210,6 +202,14 @@ class SubstancePolymerRepeatRepeatUnit(backboneelement.BackboneElement):
         self.repeatUnit = None
         """ Todo.
         Type `str`. """
+        
+        self.amount = None
+        """ Todo.
+        Type `SubstanceAmount` (represented as `dict` in JSON). """
+        
+        self.degreeOfPolymerisation = None
+        """ Todo.
+        List of `SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation` items (represented as `dict` in JSON). """
         
         self.structuralRepresentation = None
         """ Todo.
@@ -220,10 +220,10 @@ class SubstancePolymerRepeatRepeatUnit(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstancePolymerRepeatRepeatUnit, self).elementProperties()
         js.extend([
-            ("amount", "amount", substanceamount.SubstanceAmount, False, None, False),
-            ("degreeOfPolymerisation", "degreeOfPolymerisation", SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation, True, None, False),
             ("orientationOfPolymerisation", "orientationOfPolymerisation", codeableconcept.CodeableConcept, False, None, False),
             ("repeatUnit", "repeatUnit", str, False, None, False),
+            ("amount", "amount", substanceamount.SubstanceAmount, False, None, False),
+            ("degreeOfPolymerisation", "degreeOfPolymerisation", SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation, True, None, False),
             ("structuralRepresentation", "structuralRepresentation", SubstancePolymerRepeatRepeatUnitStructuralRepresentation, True, None, False),
         ])
         return js
@@ -243,21 +243,21 @@ class SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation(backboneelement.Bac
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
-        """ Todo.
-        Type `SubstanceAmount` (represented as `dict` in JSON). """
-        
         self.degree = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.amount = None
+        """ Todo.
+        Type `SubstanceAmount` (represented as `dict` in JSON). """
         
         super(SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation, self).elementProperties()
         js.extend([
-            ("amount", "amount", substanceamount.SubstanceAmount, False, None, False),
             ("degree", "degree", codeableconcept.CodeableConcept, False, None, False),
+            ("amount", "amount", substanceamount.SubstanceAmount, False, None, False),
         ])
         return js
 
@@ -276,40 +276,30 @@ class SubstancePolymerRepeatRepeatUnitStructuralRepresentation(backboneelement.B
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.attachment = None
+        self.type = None
         """ Todo.
-        Type `Attachment` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.representation = None
         """ Todo.
         Type `str`. """
         
-        self.type = None
+        self.attachment = None
         """ Todo.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        Type `Attachment` (represented as `dict` in JSON). """
         
         super(SubstancePolymerRepeatRepeatUnitStructuralRepresentation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SubstancePolymerRepeatRepeatUnitStructuralRepresentation, self).elementProperties()
         js.extend([
-            ("attachment", "attachment", attachment.Attachment, False, None, False),
-            ("representation", "representation", str, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("representation", "representation", str, False, None, False),
+            ("attachment", "attachment", attachment.Attachment, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import substanceamount
-except ImportError:
-    substanceamount = sys.modules[__package__ + '.substanceamount']
+from . import codeableconcept
+from . import substanceamount
+from . import attachment

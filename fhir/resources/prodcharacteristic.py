@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ProdCharacteristic) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/ProdCharacteristic) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -23,63 +23,8 @@ class ProdCharacteristic(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.color = None
-        """ Where applicable, the color can be specified An appropriate
-        controlled vocabulary shall be used The term and the term
-        identifier shall be used.
-        List of `str` items. """
-        
-        self.depth = None
-        """ Where applicable, the depth can be specified using a numerical
-        value and its unit of measurement The unit of measurement shall be
-        specified in accordance with ISO 11240 and the resulting
-        terminology The symbol and the symbol identifier shall be used.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
-        self.externalDiameter = None
-        """ Where applicable, the external diameter can be specified using a
-        numerical value and its unit of measurement The unit of measurement
-        shall be specified in accordance with ISO 11240 and the resulting
-        terminology The symbol and the symbol identifier shall be used.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
         self.height = None
         """ Where applicable, the height can be specified using a numerical
-        value and its unit of measurement The unit of measurement shall be
-        specified in accordance with ISO 11240 and the resulting
-        terminology The symbol and the symbol identifier shall be used.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
-        self.image = None
-        """ Where applicable, the image can be provided The format of the image
-        attachment shall be specified by regional implementations.
-        List of `Attachment` items (represented as `dict` in JSON). """
-        
-        self.imprint = None
-        """ Where applicable, the imprint can be specified as text.
-        List of `str` items. """
-        
-        self.nominalVolume = None
-        """ Where applicable, the nominal volume can be specified using a
-        numerical value and its unit of measurement The unit of measurement
-        shall be specified in accordance with ISO 11240 and the resulting
-        terminology The symbol and the symbol identifier shall be used.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
-        self.scoring = None
-        """ Where applicable, the scoring can be specified An appropriate
-        controlled vocabulary shall be used The term and the term
-        identifier shall be used.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.shape = None
-        """ Where applicable, the shape can be specified An appropriate
-        controlled vocabulary shall be used The term and the term
-        identifier shall be used.
-        Type `str`. """
-        
-        self.weight = None
-        """ Where applicable, the weight can be specified using a numerical
         value and its unit of measurement The unit of measurement shall be
         specified in accordance with ISO 11240 and the resulting
         terminology The symbol and the symbol identifier shall be used.
@@ -92,36 +37,81 @@ class ProdCharacteristic(backboneelement.BackboneElement):
         terminology The symbol and the symbol identifier shall be used.
         Type `Quantity` (represented as `dict` in JSON). """
         
+        self.depth = None
+        """ Where applicable, the depth can be specified using a numerical
+        value and its unit of measurement The unit of measurement shall be
+        specified in accordance with ISO 11240 and the resulting
+        terminology The symbol and the symbol identifier shall be used.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.weight = None
+        """ Where applicable, the weight can be specified using a numerical
+        value and its unit of measurement The unit of measurement shall be
+        specified in accordance with ISO 11240 and the resulting
+        terminology The symbol and the symbol identifier shall be used.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.nominalVolume = None
+        """ Where applicable, the nominal volume can be specified using a
+        numerical value and its unit of measurement The unit of measurement
+        shall be specified in accordance with ISO 11240 and the resulting
+        terminology The symbol and the symbol identifier shall be used.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.externalDiameter = None
+        """ Where applicable, the external diameter can be specified using a
+        numerical value and its unit of measurement The unit of measurement
+        shall be specified in accordance with ISO 11240 and the resulting
+        terminology The symbol and the symbol identifier shall be used.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.shape = None
+        """ Where applicable, the shape can be specified An appropriate
+        controlled vocabulary shall be used The term and the term
+        identifier shall be used.
+        Type `str`. """
+        
+        self.color = None
+        """ Where applicable, the color can be specified An appropriate
+        controlled vocabulary shall be used The term and the term
+        identifier shall be used.
+        List of `str` items. """
+        
+        self.imprint = None
+        """ Where applicable, the imprint can be specified as text.
+        List of `str` items. """
+        
+        self.image = None
+        """ Where applicable, the image can be provided The format of the image
+        attachment shall be specified by regional implementations.
+        List of `Attachment` items (represented as `dict` in JSON). """
+        
+        self.scoring = None
+        """ Where applicable, the scoring can be specified An appropriate
+        controlled vocabulary shall be used The term and the term
+        identifier shall be used.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         super(ProdCharacteristic, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProdCharacteristic, self).elementProperties()
         js.extend([
-            ("color", "color", str, True, None, False),
-            ("depth", "depth", quantity.Quantity, False, None, False),
-            ("externalDiameter", "externalDiameter", quantity.Quantity, False, None, False),
             ("height", "height", quantity.Quantity, False, None, False),
-            ("image", "image", attachment.Attachment, True, None, False),
-            ("imprint", "imprint", str, True, None, False),
-            ("nominalVolume", "nominalVolume", quantity.Quantity, False, None, False),
-            ("scoring", "scoring", codeableconcept.CodeableConcept, False, None, False),
-            ("shape", "shape", str, False, None, False),
-            ("weight", "weight", quantity.Quantity, False, None, False),
             ("width", "width", quantity.Quantity, False, None, False),
+            ("depth", "depth", quantity.Quantity, False, None, False),
+            ("weight", "weight", quantity.Quantity, False, None, False),
+            ("nominalVolume", "nominalVolume", quantity.Quantity, False, None, False),
+            ("externalDiameter", "externalDiameter", quantity.Quantity, False, None, False),
+            ("shape", "shape", str, False, None, False),
+            ("color", "color", str, True, None, False),
+            ("imprint", "imprint", str, True, None, False),
+            ("image", "image", attachment.Attachment, True, None, False),
+            ("scoring", "scoring", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from . import quantity
+from . import attachment
+from . import codeableconcept

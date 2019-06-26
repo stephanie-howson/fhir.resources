@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Group) on 2019-01-17.
+#  Generated from FHIR 4.1.0-baa72e6471 (http://hl7.org/fhir/StructureDefinition/Group) on 2019-06-25.
 #  2019, SMART Health IT.
 
 
@@ -26,33 +26,25 @@ class Group(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.identifier = None
+        """ Unique id.
+        List of `Identifier` items (represented as `dict` in JSON). """
+        
         self.active = None
         """ Whether this group's record is in active use.
         Type `bool`. """
+        
+        self.type = None
+        """ person | animal | practitioner | device | medication | substance.
+        Type `str`. """
         
         self.actual = None
         """ Descriptive or actual.
         Type `bool`. """
         
-        self.characteristic = None
-        """ Include / Exclude group members by Trait.
-        List of `GroupCharacteristic` items (represented as `dict` in JSON). """
-        
         self.code = None
         """ Kind of Group members.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.identifier = None
-        """ Unique id.
-        List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.managingEntity = None
-        """ Entity that is the custodian of the Group's definition.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.member = None
-        """ Who or what is in group.
-        List of `GroupMember` items (represented as `dict` in JSON). """
         
         self.name = None
         """ Label for Group.
@@ -62,25 +54,33 @@ class Group(domainresource.DomainResource):
         """ Number of members.
         Type `int`. """
         
-        self.type = None
-        """ person | animal | practitioner | device | medication | substance.
-        Type `str`. """
+        self.managingEntity = None
+        """ Entity that is the custodian of the Group's definition.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.characteristic = None
+        """ Include / Exclude group members by Trait.
+        List of `GroupCharacteristic` items (represented as `dict` in JSON). """
+        
+        self.member = None
+        """ Who or what is in group.
+        List of `GroupMember` items (represented as `dict` in JSON). """
         
         super(Group, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Group, self).elementProperties()
         js.extend([
-            ("active", "active", bool, False, None, False),
-            ("actual", "actual", bool, False, None, True),
-            ("characteristic", "characteristic", GroupCharacteristic, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("managingEntity", "managingEntity", fhirreference.FHIRReference, False, None, False),
-            ("member", "member", GroupMember, True, None, False),
+            ("active", "active", bool, False, None, False),
+            ("type", "type", str, False, None, True),
+            ("actual", "actual", bool, False, None, True),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("name", "name", str, False, None, False),
             ("quantity", "quantity", int, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("managingEntity", "managingEntity", fhirreference.FHIRReference, False, None, False),
+            ("characteristic", "characteristic", GroupCharacteristic, True, None, False),
+            ("member", "member", GroupMember, True, None, False),
         ])
         return js
 
@@ -108,21 +108,13 @@ class GroupCharacteristic(backboneelement.BackboneElement):
         """ Kind of characteristic.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.exclude = None
-        """ Group includes or excludes.
-        Type `bool`. """
-        
-        self.period = None
-        """ Period over which characteristic is tested.
-        Type `Period` (represented as `dict` in JSON). """
+        self.valueCodeableConcept = None
+        """ Value held by characteristic.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.valueBoolean = None
         """ Value held by characteristic.
         Type `bool`. """
-        
-        self.valueCodeableConcept = None
-        """ Value held by characteristic.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.valueQuantity = None
         """ Value held by characteristic.
@@ -136,19 +128,27 @@ class GroupCharacteristic(backboneelement.BackboneElement):
         """ Value held by characteristic.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.exclude = None
+        """ Group includes or excludes.
+        Type `bool`. """
+        
+        self.period = None
+        """ Period over which characteristic is tested.
+        Type `Period` (represented as `dict` in JSON). """
+        
         super(GroupCharacteristic, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(GroupCharacteristic, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("exclude", "exclude", bool, False, None, True),
-            ("period", "period", period.Period, False, None, False),
-            ("valueBoolean", "valueBoolean", bool, False, "value", True),
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True),
+            ("valueBoolean", "valueBoolean", bool, False, "value", True),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
             ("valueRange", "valueRange", range.Range, False, "value", True),
             ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
+            ("exclude", "exclude", bool, False, None, True),
+            ("period", "period", period.Period, False, None, False),
         ])
         return js
 
@@ -173,13 +173,13 @@ class GroupMember(backboneelement.BackboneElement):
         """ Reference to the group member.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.inactive = None
-        """ If member is no longer in group.
-        Type `bool`. """
-        
         self.period = None
         """ Period member belonged to the group.
         Type `Period` (represented as `dict` in JSON). """
+        
+        self.inactive = None
+        """ If member is no longer in group.
+        Type `bool`. """
         
         super(GroupMember, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -187,34 +187,15 @@ class GroupMember(backboneelement.BackboneElement):
         js = super(GroupMember, self).elementProperties()
         js.extend([
             ("entity", "entity", fhirreference.FHIRReference, False, None, True),
-            ("inactive", "inactive", bool, False, None, False),
             ("period", "period", period.Period, False, None, False),
+            ("inactive", "inactive", bool, False, None, False),
         ])
         return js
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from . import identifier
+from . import codeableconcept
+from . import fhirreference
+from . import quantity
+from . import range
+from . import period
