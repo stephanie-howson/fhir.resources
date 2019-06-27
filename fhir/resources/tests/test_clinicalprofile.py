@@ -4,15 +4,14 @@
 #  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-01-17.
 #  2019, SMART Health IT.
 
-import os
-import pytest
 import io
-import unittest
 import json
+import os
+import unittest
 
-from .fixtures import force_bytes
+import pytest
+
 from .. import clinicalprofile, identifier, fhirreference
-from ..fhirdate import FHIRDate
 
 
 @pytest.mark.usefixtures("base_settings")
@@ -33,11 +32,24 @@ class ClinicalProfileTests(unittest.TestCase):
         clpr.reporter = fhirreference.FHIRReference({'reference': 'Organization/JHM'})
         clpr.cohort = fhirreference.FHIRReference({'reference': 'Group/jh-19'})
         js = clpr.as_json()
-        print(js)
+        print(json.dumps(clpr.as_json(), indent='  '))
         self.assertEqual(json.loads("""{
-  "resourceType": "Group",
-  "id": "lab-ALL-ALL-ALL",
-  "type": "person",
-  "actual": true
+  "resourceType": "ClinicalProfile",
+  "id": "Group/jh-17",
+  "identifier": [
+    {
+      "value": "Group/jh-17"
+    }
+  ],
+  "status": "draft",
+  "population": {
+    "reference": "Group/jh-18"
+  },
+  "cohort": {
+    "reference": "Group/jh-19"
+  },
+  "reporter": {
+    "reference": "Organization/JHM"
+  }
 }"""), clpr.as_json())
 
