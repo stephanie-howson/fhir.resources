@@ -41,10 +41,12 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         return super(FHIRAbstractResource, cls)._with_json_dict(jsondict)
     
     def as_json(self):
-        rt = self.resourceType
-        self.resourceType = self.resource_type
+        if hasattr(self, 'resourceType'):
+            rt = self.resourceType
+            self.resourceType = self.resource_type
         js = super(FHIRAbstractResource, self).as_json()
-        self.resourceType = rt
+        if hasattr(self, 'resourceType'):
+            self.resourceType = rt
         return js
     
     

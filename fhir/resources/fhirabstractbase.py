@@ -249,7 +249,7 @@ class FHIRAbstractBase(object):
                 nonoptionals.add(of_many or jsname)
             
             err = None
-            value = getattr(self, name)
+            value = getattr(self, name, None)
             if value is None:
                 continue
             
